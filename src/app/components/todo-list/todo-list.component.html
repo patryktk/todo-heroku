@@ -1,0 +1,74 @@
+<html>
+  <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+<div class="container">
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+   alt="Avatar" class="image" style="width:100%">
+  <div class="middle">
+    <div class="text">Angular</div>
+  </div>
+</div>
+
+
+<input type="text" class="todo-input" placeholder="What needs to be done" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()">
+
+<div class="todo-item" *ngFor="let todo of todosFiltered()">
+  <div class="todo-item-left">
+    <input type="checkbox" [(ngModel)]="todo.completed">
+    <div class="todo-item-label" [ngClass]="{ 'completed' : todo.completed }" >{{ todo.title }}</div>
+  </div>
+  <div class="remove-item" (click)="deleteTodo(todo.id)">
+    &times;
+  </div>
+</div>
+
+<div class="extra-container">
+  <div><label><input type="checkbox" (change)="checkAllTodos()"> Check All</label></div>
+  <div>{{remaining()}} items left</div>
+</div>
+
+<div class="extra-container">
+  <div>
+    <button [ngClass]="{'active': filter === 'all'}" (click)="filter='all'">All</button>
+    <button [ngClass]="{'active': filter === 'active'}" (click)="filter='active'">Active</button>
+    <button [ngClass]="{'active': filter === 'completed'}" (click)="filter='completed'">Completed</button>
+  </div>
+
+  <div *ngIf="atLeastOneCompleted()">
+    <button (click)="clearCompleted()">Clear Completed</button>
+  </div>
+
+</div>
+
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Film</button>
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div class="container1">
+      <iframe width="1240" height="600"
+      src="https://www.youtube.com/watch?v=Uxs7GG-eD5s">
+      </iframe>
+    </div>
+  </form>
+</div>
+<a href="https://www.facebook.com/GargamelVlog" class="fa fa-facebook"></a>
+<a href="https://www.google.com" class="fa fa-google"></a>
+<a href="https://www.youtube.com/watch?v=wTAibxp37vE" class="fa fa-youtube"></a>
+<a href="https://www.reddit.com/r/memes/comments/ekcm64/pick_your_favorite/" class="fa fa-reddit"></a>
+
+<div class="chip">
+  <img src="img_avatar1.png" alt="Person" width="128" height="128">
+  John Doe
+  <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+</div>
+<div class="danger">
+  <p><strong>Uwaga</strong> Będzie 5</p>
+</div>
